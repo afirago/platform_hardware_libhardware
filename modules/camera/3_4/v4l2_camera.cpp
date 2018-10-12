@@ -396,7 +396,7 @@ int V4L2Camera::setupStreams(camera3_stream_configuration_t* stream_config) {
         stream->usage = GRALLOC_USAGE_SW_READ_OFTEN;
         break;
       case CAMERA3_STREAM_OUTPUT:
-        stream->usage = GRALLOC_USAGE_SW_WRITE_OFTEN;
+        stream->usage = GRALLOC_USAGE_SW_WRITE_OFTEN | GRALLOC_USAGE_HW_CAMERA_WRITE;
         break;
       case CAMERA3_STREAM_BIDIRECTIONAL:
         stream->usage =
@@ -419,10 +419,10 @@ int V4L2Camera::setupStreams(camera3_stream_configuration_t* stream_config) {
 
 bool V4L2Camera::isValidRequestSettings(
     const android::CameraMetadata& settings) {
-  if (!metadata_->IsValidRequest(settings)) {
-    HAL_LOGE("Invalid request settings.");
-    return false;
-  }
+  // if (!metadata_->IsValidRequest(settings)) {
+  //   HAL_LOGE("Invalid request settings.");
+  //   return false;
+  // }
   return true;
 }
 

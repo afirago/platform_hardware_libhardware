@@ -27,7 +27,6 @@
 #include <android-base/unique_fd.h>
 
 #include "v4l2_wrapper.h"
-#include "v4l2_subdev_wrapper.h"
 
 #include "arc/common_types.h"
 #include "arc/frame_buffer.h"
